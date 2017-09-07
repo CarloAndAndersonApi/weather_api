@@ -14,9 +14,18 @@
     width: 200px;
     margin: auto;
     position: relative;
-    left: 300px;
-    top: 100px;
+    left: 254px;
+
     text-align: center;
     list-style-type: none;
     background-color: orange;
+}
+#map {
+    margin:auto;
+
+    width: 600px;
+    height: 481px;
+    border: 2px solid black;
+    position: relative;
+
 }
