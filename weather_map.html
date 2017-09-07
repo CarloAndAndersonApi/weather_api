@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Api</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/weather_map.css">
+
+</head>
+<body>
+<div class="api" id="api1"></div>
+<div class="api" id="api2"></div>
+<div class="api" id="api3"></div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script>
+    $.get("http://api.openweathermap.org/data/2.5/weather", {
+        APPID: "07099172fe609f5517481eb2e1e81cf4",
+        q:     "San Antonio, TX",
+        id:     4726206,
+        lat:    29.423017,
+        lon:   -98.48527,
+        units: "imperial",
+        ctn: 5
+
+
+    }).done(function(data) {
+        console.log(data);
+function api() {
+    var mapa =   $.get("http://api.openweathermap.org/data/2.5/weather", {
+        APPID: "07099172fe609f5517481eb2e1e81cf4"
+    })
+}
+
+    });
+
+
+</script>
+
+</body>
+</html>
