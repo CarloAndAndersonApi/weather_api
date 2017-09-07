@@ -1,8 +1,22 @@
-.api {
-    width: 200px;
-    height: 200px;
-    display: inline-flex;
-    border: 1px solid black;
-    margin: auto;
+/*.api {*/
+    /*width: 200px;*/
+    /*height: 200px;*/
+    /*display: inline-flex;*/
+    /*border: 1px solid black;*/
+    /*margin: auto;*/
 
+/*}*/
+
+.forecast {
+
+    border: 1px solid #000;
+    display: inline-flex;
+    width: 200px;
+    margin: auto;
+    position: relative;
+    left: 300px;
+    top: 100px;
+    text-align: center;
+    list-style-type: none;
+    background-color: orange;
 }
