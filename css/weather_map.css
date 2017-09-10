@@ -6,6 +6,18 @@
     /*margin: auto;*/
 
 /*}*/
+#for0 {
+
+}
+
+#for1 {
+
+}
+ #for2 {
+
+ }
+
+
 
 .forecast {
 
@@ -13,12 +25,13 @@
     display: inline-flex;
     width: 200px;
     margin: auto;
-    position: relative;
-    left: 254px;
+    left: 236px;
 
     text-align: center;
     list-style-type: none;
     background-color: orange;
+    position: relative;
+    left: 150px;
 }
 #map {
     margin:auto;
@@ -28,4 +41,7 @@
     border: 2px solid black;
     position: relative;
 
+}
+body{
+    background-image: url('../img/rain.jpeg');
 }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Forecast</title>
+    <link rel="stylesheet" href="css/forecast.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body class="gify">
+<div>
+    <h1 class="jumbotron heading">WEATHER API</h1>
+</div>
+<div>
+
+    <div id="box">
+
+    </div>
+</div>
+
+<div class="gif">
+
+    <div class="sunny"></div>
+    <div class="cloudy"></div>
+    <div class="rainy"></div>
+    <div class="snowy"></div>
+    <div class="rainbow"></div>
+    <div class="starry"></div>
+    <div class="stormy"></div>
+    <input type="text" placeholder="latitude" class="in-put">
+    <input type="text" placeholder="longitude" class="in-put">
+    <button class="in-put">find weather</button>
+
+</div>
+
+
+<div id="map"></div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO9IEUvBm20UmWAEYZYSbhXd9S7wQhRzs"></script>
+
+
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+<script>
+
+
+
+
+
+
+
+    "use strict"
+
+
+
+
+
+    $.get("http://api.openweathermap.org/data/2.5/forecast", {
+        APPID: "07099172fe609f5517481eb2e1e81cf4",
+        q: "San Antonio, TX",
+        cnt: 3,
+        units: "imperial"
+
+    }).done(function (data) {  /* when done call object*/
+        console.log(data);
+        /*console  data object*/
+        data.list.forEach(function (day) {
+
+
+            var html = ""
+            var div = "<div class='division'>"
+            html += "<h3>" + "<strong>" + parseInt(day.main.temp_max) + " / " + parseInt(day.main.temp_min) + "</strong>" + "</h3>"
+            html += "<p class='par'>" + "<img src='http://openweathermap.org/img/w/" + day.weather[0].icon + ".png'>" + "</p>"
+            html += "<p class='par'>" + "<strong>" + "humidity: " + day.main.humidity + "</strong>" + "</p>"
+            html += "<p class='par'>" + "<strong>" + "wind: " + "</strong>" + day.wind.speed + " mph" + "</p>"
+            html += "<p class='par'>" +"<strong>" + "pressure : " + "</strong>" + day.main.pressure + "</p>"
+
+
+            div += html + "</div>"
+
+
+//            })
+
+
+            appendList( div)
+
+        })
+    });
+
+    //
+    function appendList(day) {
+        $("#box").append(day)
+
+
+    }
+
+
+
+
+</script>
+<script src="js/forecast_api.js"></script>
+
+
+
+</body>
+</html>
