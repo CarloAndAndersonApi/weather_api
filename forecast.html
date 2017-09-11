@@ -8,7 +8,7 @@
 </head>
 <body class="gify">
 <div>
-    <h1 class="jumbotron heading">WEATHER API</h1>
+    <h1 class="jumbotron heading">WEaTHER aPI</h1>
 </div>
 <div>
 
@@ -17,7 +17,10 @@
     </div>
 </div>
 
+
 <div class="gif">
+
+
 
     <div class="sunny"></div>
     <div class="cloudy"></div>
@@ -26,8 +29,8 @@
     <div class="rainbow"></div>
     <div class="starry"></div>
     <div class="stormy"></div>
-    <input type="text" placeholder="latitude" class="in-put">
-    <input type="text" placeholder="longitude" class="in-put">
+    <input type="text" placeholder="Search city" id="search" class="in-put">
+    <!--<span id="error"></span>-->
     <button class="in-put">find weather</button>
 
 </div>
@@ -56,7 +59,9 @@
 
 
 
-    "use strict"
+    "use strict";
+
+
 
 
 
@@ -75,28 +80,51 @@
 
 
             var html = ""
-            var div = "<div class='division'>"
-            html += "<h3>" + "<strong>" + parseInt(day.main.temp_max) + " / " + parseInt(day.main.temp_min) + "</strong>" + "</h3>"
+            var div = "<div class='division'>";
+            html += "<h3>" + "<strong>" + parseInt(day.main.temp_max) + " / " + parseInt(day.main.temp_min) + "</strong>" + "</h3>";
             html += "<p class='par'>" + "<img src='http://openweathermap.org/img/w/" + day.weather[0].icon + ".png'>" + "</p>"
-            html += "<p class='par'>" + "<strong>" + "humidity: " + day.main.humidity + "</strong>" + "</p>"
-            html += "<p class='par'>" + "<strong>" + "wind: " + "</strong>" + day.wind.speed + " mph" + "</p>"
-            html += "<p class='par'>" +"<strong>" + "pressure : " + "</strong>" + day.main.pressure + "</p>"
+            html += "<p class='par'>" + "<strong>" + "humidity: " + day.main.humidity + "</strong>" + "</p>";
+            html += "<p class='par'>" + "<strong>" + "wind: " + "</strong>" + day.wind.speed + " mph" + "</p>";
+            html += "<p class='par'>" +"<strong>" + "pressure : " + "</strong>" + day.main.pressure + "</p>";
 
 
-            div += html + "</div>"
+            div += html + "</div>";
+
+            $('.in-put').click(function() {
+              var search =   $('#search').val();
+//              var lng = $("#lng").val()
+                if (search !=='' ) {
+                    $.ajax({
+                        url: 'http://api.openweathermap.org/data/2.5/find?q=' + search + "&units=imperial" + "&APPID=07099172fe609f5517481eb2e1e81cf4",
+                        type: "GET",
+                        dataType: "jsonp",
+                        success: function(data) {
 
 
-//            })
+                            $('#search').val('');
+                            console.log(data)
+
+                        }
 
 
-            appendList( div)
+                    })
 
-        })
+                } else {
+                    $("#error").html("field cannot be empty")
+                }
+            })
+
+
+
+
+            appendList( div);
+
+        }) 
     });
 
     //
     function appendList(day) {
-        $("#box").append(day)
+        $("#box").append(day);
 
 
     }
